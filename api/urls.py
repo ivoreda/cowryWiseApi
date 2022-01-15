@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.ListKeyGen.as_view()),
+    path('ola/', views.ivor),
 ]
