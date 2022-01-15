@@ -13,22 +13,3 @@ from api import serializers
 class ListKeyGen(generics.ListCreateAPIView):
     queryset = KeyGen.objects.all()
     serializer_class = KeyGenSerializer
-
-    # some = KeyGenSerializer.fields.data()
-    # print(some)
-
-    # def post(request):
-    #     serializer = KeyGenSerializer(request.data, many=True)
-    #     dict(dateTime=serializer.data.timestamp, idKey=serializer.data.uuid)
-    #     return Response
-
-
-@api_view(["GET"])
-def ivor(request):
-    context = {}
-    item = KeyGen.objects.all()
-    serializer = KeyGenSerializer(item, many=True)
-    for serializers in serializer:
-        context[serializers.data.dateTime] = serializers.data.idKey
-    print(serializer)
-    return Response(context)
